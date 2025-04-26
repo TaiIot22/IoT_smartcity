@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart City</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id= "header">
+        <ul>
+             <li><b>Smart City - IoT</b></li>
+             <img src="image\logo2.png" id="logo">
+        </ul>
+    </div>
+    <div id= "banner">
+        <div class="tag">
+            <button onclick="function_td()"><b>Thủ Đức</b></button>
+            <button onclick="function_q7()"><b>Quận 7</b></button>
+            <button onclick="function_bt()"><b>Bình Thạnh</b></button>
+            <button onclick="function_q8()"><b>Quận 8</b></button>
+            <button onclick="function_q9()"><b>Quận 9</b></button>
+            
+        </div>
+    </div>
+    <div id= "main"> 
+      <canvas id="weatherChart" width="800" height="400"></canvas>
+      
+        <div id="top">
+          <div id="time"> </div>
+           <script>
+            
+          function dongho() {
+          var time = new Date();
+          var gio = time.getHours();
+          var phut = time.getMinutes();
+          var giay = time.getSeconds();
+          if (gio < 10) 
+          gio = "0" + gio;
+          if (phut < 10) 
+          phut = "0" + phut;
+          if (giay < 10) 
+          giay = "0" + giay;
+          document.getElementById("time").innerHTML = gio + ":" + phut + ":" + giay;
+          setTimeout("dongho()", 1000);
+          };
+          dongho();
+          </script>
+          
+          <div id="nd"> 
+            <h1><img src="image\nhietdo1.png" id="nd1"></h1>
+            <h2>Nhiệt độ</h2>
+          </div>
+          <div id="da"> 
+            <h3><img src="image\doam1.png" id="da1"></h3>
+            <h4>Độ ẩm</h4>
+          </div>
+          <div id="lm"> 
+            <h5><img src="image\luongmua1.png" id="lm1"></h5>
+            <h6>Lượng mưa</h6>
+          </div>
+
+          <div class="thongso">
+            <h7 id="nhietdo"></h7>
+            <h7 id="doam"></h7>
+            <h7 id="luongmua"></h7>
+          </div>
+
+        </div>
+        <div id="bot">
+          <h1><center><img src="image\quat.png"id="quat"></center>
+            <button type="button" id="btn1" >On</button>
+            <button type="button" id="btn2" >Off</button><br><br>
+          </h1>
+        <h1><center><img src="image\may.png"id="suoi"></center>
+            <button type="button" id="btn3" >On</button>
+            <button type="button" id="btn4" >Off</button><br><br>
+        </h1>
+        <h1><center><img src="image\lamp2.png"id="lamp"></center>
+            <button type="button" id="btn5" >On</button>
+            <button type="button" id="btn6" >Off</button><br><br>
+        </h1>
+        <h2>Làm mát</h2>
+        <h3>Sưởi ấm</h3>
+        <h4>Đèn</h4>
+        </div>
+    </div>
+    <div id= "footer">
+         <ul>
+              <li>    Lớp IoT chủ nhật </li>
+              <li>    Ngọc Tài 23661038, Ngọc Thuận 23661042, Hội Nghị 23661033 </li>
+             
+
+        </ul>
+    </div>
+    <script src="function.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-database.js"></script>
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-analytics.js"></script>
+
+    
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyBRLfo8TIIDv72FLWj93flLXj2omgcfM6Y",
+    authDomain: "smartcity-a68d4.firebaseapp.com",
+    databaseURL: "https://smartcity-a68d4-default-rtdb.firebaseio.com",
+    projectId: "smartcity-a68d4",
+    storageBucket: "smartcity-a68d4.firebasestorage.app",
+    messagingSenderId: "887407589954",
+    appId: "1:887407589954:web:15d4646e47a9ad82718bdb",
+    measurementId: "G-N8944PP4LW"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+<script>
+  //functions
+  var nhietDotd = document.getElementById('nhietdo');
+  var dbRef = firebase.database().ref('thuduc').child('Nhietdo');  
+  var doAmtd = document.getElementById('doam');
+  var dbRef2 = firebase.database().ref('thuduc').child('Doam');
+  var luongMuatd = document.getElementById('luongmua');
+  var dbRef3 = firebase.database().ref('thuduc').child('Luongmua');
+
+  var nhietDoq7 = document.getElementById('nhietdo');
+  var dbRef4 = firebase.database().ref('Quan7').child('Nhietdo');  
+  var doAmq7 = document.getElementById('doam');
+  var dbRef5 = firebase.database().ref('Quan7').child('Doam');
+  var luongMuaq7 = document.getElementById('luongmua');
+  var dbRef6 = firebase.database().ref('Quan7').child('Luongmua');
+
+  var nhietDobt = document.getElementById('nhietdo');
+  var dbRef7 = firebase.database().ref('Binhthanh').child('Nhietdo');
+  var doAmbt = document.getElementById('doam');
+  var dbRef8 = firebase.database().ref('Binhthanh').child('Doam');  
+  var luongMuabt = document.getElementById('luongmua');
+  var dbRef9 = firebase.database().ref('Binhthanh').child('Luongmua');
+
+  var nhietDoq8 = document.getElementById('nhietdo');
+  var dbRef10 = firebase.database().ref('Quan8').child('Nhietdo');
+  var doAmq8 = document.getElementById('doam');
+  var dbRef11 = firebase.database().ref('Quan8').child('Doam');
+  var luongMuaq8 = document.getElementById('luongmua');
+  var dbRef12 = firebase.database().ref('Quan8').child('Luongmua');
+
+  var nhietDoq9 = document.getElementById('nhietdo');
+  var dbRef13 = firebase.database().ref('Quan9').child('Nhietdo');
+  var doAmq9 = document.getElementById('doam');
+  var dbRef14 = firebase.database().ref('Quan9').child('Doam');
+  var luongMuaq9 = document.getElementById('luongmua');
+  var dbRef15 = firebase.database().ref('Quan9').child('Luongmua');
+
+</script>
+<script>
+  function function_td(){
+    dbRef.on('value', snap => nhietDotd.innerText = snap.val()+ " °C");
+    dbRef2.on('value', snap => doAmtd.innerText = snap.val()+ " %");
+    dbRef3.on('value', snap => luongMuatd.innerText = snap.val()+ " ml");
+  }
+</script>
+<script>
+  function function_q7(){
+    dbRef4.on('value', snap => nhietDoq7.innerText = snap.val()+ " °C");
+    dbRef5.on('value', snap => doAmq7.innerText = snap.val()+ " %");
+    dbRef6.on('value', snap => luongMuaq7.innerText = snap.val()+ " ml");
+  }
+</script>
+<script>
+  function function_bt(){
+    dbRef7.on('value', snap => nhietDobt.innerText = snap.val()+ " °C");
+    dbRef8.on('value', snap => doAmbt.innerText = snap.val()+ " %");
+    dbRef9.on('value', snap => luongMuabt.innerText = snap.val()+ " ml");
+  }
+</script>
+<script>
+  function function_q8(){
+    dbRef10.on('value', snap => nhietDoq8.innerText = snap.val()+ " °C");
+    dbRef11.on('value', snap => doAmq8.innerText = snap.val()+ " %");
+    dbRef12.on('value', snap => luongMuaq8.innerText = snap.val()+ " ml");
+  }
+</script>
+<script>
+  function function_q9(){
+    dbRef13.on('value', snap => nhietDoq9.innerText = snap.val()+ " °C");
+    dbRef14.on('value', snap => doAmq9.innerText = snap.val()+ " %");
+    dbRef15.on('value', snap => luongMuaq9.innerText = snap.val()+ " ml");
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</body>
+<script>
+  const ctx = document.getElementById('weatherChart').getContext('2d');
+
+  // Dữ liệu sẽ cập nhật vào đây
+  const chartData = {
+    labels: [], // tên quận
+    datasets: [
+      {
+        label: 'Nhiệt độ (°C)',
+        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+        data: []
+      },
+      {
+        label: 'Độ ẩm (%)',
+        backgroundColor: 'rgba(54, 162, 235, 0.5)',
+        data: []
+      },
+      {
+        label: 'Lượng mưa (ml)',
+        backgroundColor: 'rgba(75, 192, 192, 0.5)',
+        data: []
+      }
+    ]
+  };
+
+  const weatherChart = new Chart(ctx, {
+    type: 'bar',
+    data: chartData,
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { position: 'top' },
+        title: { display: true, text: 'Biểu đồ Thời tiết các khu vực' }
+      }
+    }
+  });
+
+  // Danh sách khu vực cần lấy
+  const areas = ['thuduc', 'Quan7', 'Binhthanh', 'Quan8', 'Quan9'];
+
+  areas.forEach(area => {
+    const areaRef = firebase.database().ref(area);
+    areaRef.on('value', (snapshot) => {
+      const data = snapshot.val();
+      const index = chartData.labels.indexOf(area);
+      if (index === -1) {
+        chartData.labels.push(area);
+        chartData.datasets[0].data.push(data.Nhietdo || 0);
+        chartData.datasets[1].data.push(data.Doam || 0);
+        chartData.datasets[2].data.push(data.Luongmua || 0);
+      } else {
+        chartData.datasets[0].data[index] = data.Nhietdo || 0;
+        chartData.datasets[1].data[index] = data.Doam || 0;
+        chartData.datasets[2].data[index] = data.Luongmua || 0;
+      }
+      weatherChart.update();
+    });
+  });
+</script>
+
+</html>

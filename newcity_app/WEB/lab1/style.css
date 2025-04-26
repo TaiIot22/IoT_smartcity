@@ -1,0 +1,282 @@
+body{
+    font-family: tahoma;
+    font-size: 20px;
+    max-width: 1000px; /* Tối đa 1000px, nhưng nhỏ hơn trên màn hình bé */
+    width: 100%; 
+    margin: 0px auto;
+    background-image:url("background.jpg");
+}
+#header{
+    width: 1000px;
+    height: 70px;
+    background-image:url("header.jpg");
+    color: rgb(219, 32, 32);
+    text-align: center;
+    line-height: 70px;  
+    
+
+}
+#header #logo{
+    width: 70px;
+    height: 70px;
+    float: left;
+    
+}
+#banner {
+    width: 100%;
+    height: 50px;
+    background-image:url("a.jpg");
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    padding: 5px 0;  /* Tạo khoảng cách bên trong banner */
+
+}
+
+.tag {
+    display: flex;  /* Các nút trên cùng một hàng */
+    gap: 3px;       /* Khoảng cách giữa các nút */
+}
+
+
+
+.tag button:hover {
+    background: #2e72cc;  /* Đổi màu khi di chuột */
+    color: white;
+}
+
+#main {
+    
+    min-height: 565px;
+    width: 1000px;
+    background-color: white;
+    background-image: url("nen.jpg");
+    background-size: cover; /* Ảnh nền phủ kín */
+    background-position: center; /* Căn giữa ảnh nền */
+    
+
+}
+
+#weatherChart {
+    min-height: 400px;
+    width: 100%;
+    max-width: 1000px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    margin: auto;
+  }
+
+
+#main #top{
+   min-height: 315px;
+
+}
+#main #bot{
+    min-height: 200px;
+
+
+}
+#footer{
+    background: whitesmoke;
+    min-height: 45px;
+    width: 1000px;
+
+}
+#header ul{
+    margin: 0px;
+    padding: 0px;
+}
+#header ul li{
+    list-style: none;
+    float: right;
+    width: 90%;
+    font-size: 50px;
+}
+.tag
+{
+    width:100%;
+    height:60px;
+
+    
+}
+.tag button
+{
+    width: 10%  ;
+    height:50px;
+    font-size: 20px;
+   margin-left:10% ;
+   margin-right:2%;
+  
+}
+#footer ul{
+    margin: 0px;
+    padding: 0px;
+}
+#footer ul li{
+    list-style: none;
+    float: left;
+    width: 100%;
+    font-size: 18px;
+    font-weight: bold;   color: white;  background: rgba(0, 0, 0, 0.7);
+}
+
+
+#nd{
+    width: 100px;
+    height: 120px;
+    margin-left: 10%;
+    margin-top: 1%;
+    float: left;
+}
+img#nd1 
+{
+    width: 120px;
+    height: 120px;
+    margin-left: 50%;
+}
+h2 
+{
+    font-size: x-large;
+    width: 120px;
+    height: 30px;
+    margin-left: 60%;
+    color: green;
+
+}
+
+
+
+#da{
+    width: 100px;
+    height: 120px;
+    margin-left: 20%;
+    float: left;
+    margin-top: 2%;
+}
+img#da1 
+{
+    width: 120px;
+    height: 120px;
+    margin-left: 50%;
+}
+h4 
+{
+    font-size: x-large;
+    width: 120px;
+    height: 50px;
+    margin-left: 70%;
+    color: green;
+}
+#lm{
+    width: 100px;
+    height: 120px;
+    margin-right: 17%;
+    margin-top: -0.7%;
+    float: right;
+}
+img#lm1 
+{
+    width: 120px;
+    height: 120px;
+    margin-right: 50%;
+}
+h6{
+    font-size: x-large;
+    width: 180px;
+    height: 30px;
+    margin-left: 10%;
+    color: green;
+}
+.thongso
+{
+    width: 90%;
+    height: 20%;
+    justify-content: space-around;
+    top:50%;
+    margin-left:0px ;
+}
+#nhietdo
+{
+
+    position: relative;
+ 
+    right:35%;
+    margin-top: 165px;
+    float: left;
+}
+#doam
+{
+    position: relative;
+    left: -7%;
+    margin-top: 165px;
+    float: left;
+}
+#luongmua
+{
+
+
+    margin-top: 165px;
+    left: 10%;
+    float: right;
+    position: relative;
+}
+
+#bot h1 {
+    width: 200px;
+    height: 225px;
+    display: inline-block;
+    border-style: inset;
+    margin-left: 9.5%;
+}
+#bot h1 h2
+{
+    width:100%;
+    height:10%;
+    background-color: beige; 
+}
+button 
+{
+    width: 60px;
+    height: 30px;
+    margin-left: 10%;
+    font-size: 20px;
+    font-family: revert;
+    margin-right: auto;
+
+}
+#bot h2{
+    float: left;
+    margin-left: 15.5%;
+    margin-top: -13%;
+    font-size: 20px;
+    font-family: tahoma;
+    color: black;
+}
+#bot h3{
+    float: left;
+    margin-left: 46.5%;
+    margin-top: -13%;
+    font-size: 20px;
+    font-family: tahoma;
+    color: black;
+}
+#bot h4{
+    float: left;
+    margin-left: 79.5%;
+    margin-top: -13%;
+    font-size: 20px;
+    font-family: tahoma;
+    color: black;
+}
+#time {
+
+    margin-left: 50%;
+    font-family: "Tahoma", sans-serif;
+    font-size: 24px;  /* Tăng kích thước chữ */
+    font-weight: bold;   color: white;  background: rgba(0, 0, 0, 0.7);
+    padding: 10px 20px;  /* Tạo khoảng cách trong */
+    text-align: center;
+    transform: translateX(-50%);  /* Căn giữa hoàn toàn */
+    top: 10px;  /* Cách mép trên 10px */
+    width: 120px;  /* Định kích thước cố định */
+}
